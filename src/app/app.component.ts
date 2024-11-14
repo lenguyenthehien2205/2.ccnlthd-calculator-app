@@ -16,7 +16,18 @@ export class AppComponent {
     if (this.currentInput === 'Error') {
       this.currentInput = '';
     }
-    this.currentInput += value;
+    if (this.currentInput === '0') {
+      if (value === '0') {
+        // Không làm gì nếu cố gắng nhập thêm '0' khi đã có '0' ở đầu
+        return;
+      } else if (value === '.') {
+        this.currentInput += value; // Cho phép '0.'
+      } else {
+        this.currentInput = value; // Thay thế '0' nếu nhập số khác
+      }
+    } else {
+      this.currentInput += value;
+    }
   }
 
   clear() {
