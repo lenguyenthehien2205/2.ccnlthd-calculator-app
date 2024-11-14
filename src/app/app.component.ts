@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule],
+  imports: [FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -14,9 +14,6 @@ export class AppComponent {
 
   appendInput(value: string) {
     if (this.currentInput === 'Error') {
-      this.currentInput = '';
-    }
-    if (this.currentInput === '0') {
       this.currentInput = '';
     }
     this.currentInput += value;
